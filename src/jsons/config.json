@@ -1,0 +1,46 @@
+{
+    "ddd": {
+
+      "011": {
+        "taxas": {
+          "016": 1.9,
+          "017": 1.7,
+          "018": 0.9
+        }
+      },
+
+      "016": {
+        "taxas": {
+          "011": 2.9
+        }
+      },
+
+      "017": {
+        "taxas": {
+          "011": 2.7
+        }
+      },
+
+      "018": {
+        "taxas": {
+          "011": 1.9
+        }
+      }
+
+    },
+
+    "plans": [
+      {"name": "FaleMais 30", "value":30},
+      {"name": "FaleMais 60", "value":60},
+      {"name": "FaleMais 120", "value":120}
+    ],
+
+    "tableNames": [
+      "Origem",
+      "Destino",
+      "Tempo (mins)",
+      "Plano FaleMais",
+      "Com Plano FaleMais",
+      "Sem Plano FaleMais"
+    ]
+}
