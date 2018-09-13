@@ -21,7 +21,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: '..:: Telzir - Fale Mais ::..',
+    title: '..:: EcoStage - Programação ::..',
     template: join(paths.dev, 'index.html'),
   },
 
