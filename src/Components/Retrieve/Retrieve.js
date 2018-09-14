@@ -4,13 +4,18 @@ import PropTypes from 'prop-types'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import Style from './style'
 
-export default class Retrieve extends React.Component {
+//API & Reducers
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actions as Attractions } from 'reducers/Attractions'
+
+class Retrieve extends React.Component {
 
   constructor(props) {
     super(props)
 
     const bindByName = [
-      // "Calculate",
+      // "getAttractions",
       // "OnChangeOrigin",
     ]
 
@@ -18,21 +23,7 @@ export default class Retrieve extends React.Component {
       this[bind] = this[bind].bind(this)
     })
 
-    // this.state = {
-    //   table: null,
-    //   origin: this.GetAllDDDs()[0],
-    // }
-
-    const atts = [{
-      id: 1,
-      name: "Futebol",
-      media: "Globo",
-      date: "11/11/2018"
-    }]
-
-    window.localStorage.setItem("attractions", JSON.stringify(atts));
-
-    console.log(JSON.parse(window.localStorage.getItem('attractions')))
+    this.props.actions.getList()
 
   }
 
@@ -41,7 +32,7 @@ export default class Retrieve extends React.Component {
   }
 
   getAttractions(){
-    return JSON.parse(window.localStorage.getItem('attractions'));
+    return this.props.all
   }
 
   render() {
@@ -53,22 +44,25 @@ export default class Retrieve extends React.Component {
           <div className="upcoming">
             <label>Próximos...</label>
             <table>
-              <tr>
-                <th>Nome</th>
-                <th>Mídia</th>
-                <th>Data/Hora</th>
-              </tr>
-              {
-                (this.getAttractions() instanceof Array) && this.getAttractions().map( (a, i) => {
-                  return (
-                    <tr>
-                      <th>{a.name}</th>
-                      <th>{a.media}</th>
-                      <th>{a.date}</th>
-                    </tr>
-                  )
-                })
-              }
+              <tbody>
+                <tr>
+                  <th>Nome</th>
+                  <th>Mídia</th>
+                  <th>Data/Hora</th>
+                </tr>
+                {
+                  this.getAttractions().map( (a, i) => {
+                    return (
+                      <tr key={i}>
+                        <th>{a.name}</th>
+                        <th>{a.media}</th>
+                        <th>{a.date}</th>
+                      </tr>
+                    )
+                  })
+                }
+              </tbody>
+
             </table>
           </div>
 
@@ -77,3 +71,22 @@ export default class Retrieve extends React.Component {
     )
   }
 }
+
+function mapStateToProps({ attractions }) {
+  const { all, isLoading } = attractions
+
+  return {
+    all,
+    isLoading,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({
+      ...Attractions,
+    }, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Retrieve)

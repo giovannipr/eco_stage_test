@@ -14,19 +14,29 @@ export default class HomePage extends React.Component {
     super(props)
 
     const bindByName = [
-      // "Calculate",
-      // "OnChangeOrigin",
+      "ChangeTabID",
     ]
 
     bindByName.map((bind) => {
       this[bind] = this[bind].bind(this)
     })
 
-    // this.state = {
-    //   table: null,
-    //   origin: this.GetAllDDDs()[0],
-    // }
+    this.state = {
+      currentTab: 1,
+    }
 
+  }
+
+  ChangeTabID(id){
+    this.setState({currentTab: id})
+  }
+
+  CurrentTab(){
+    switch (this.state.currentTab) {
+      case 1: return <Create />;
+      case 2: return <Retrieve />;
+      default: <div />;
+    }
   }
 
   render() {
@@ -35,10 +45,9 @@ export default class HomePage extends React.Component {
       <Style>
         <div id="main-div">
           <div>Olá! Seja Bem-Vindo a suas atrações...</div>
-          <Header />
+          <Header currentTabID={this.state.currentTab} changeTabID={this.ChangeTabID} />
           <div id="main-body">
-            {/* <Create /> */}
-            <Retrieve />
+            { this.CurrentTab() }
           </div>
         </div>
       </Style>

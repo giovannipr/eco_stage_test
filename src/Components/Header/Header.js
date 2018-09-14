@@ -10,29 +10,42 @@ export default class Header extends React.Component {
     super(props)
 
     const bindByName = [
-      // "Calculate",
-      // "OnChangeOrigin",
+      "ChangeTabById",
     ]
 
     bindByName.map((bind) => {
       this[bind] = this[bind].bind(this)
     })
 
-    // this.state = {
-    //   table: null,
-    //   origin: this.GetAllDDDs()[0],
-    // }
+  }
 
+  ChangeTabById(id){
+    this.props.changeTabID(id);
   }
 
   render() {
+
+    const {currentTabID, changeTabID} = this.props;
+
+    const selectedStyle = {
+      pointerEvents: "none",
+      backgroundColor: "blue"
+    }
+    const notSelectedStyle = {
+      cursor: "pointer",
+    }
 
     return (
       <Style>
         <div id="header">
           <ul>
-            <li>Cadastrar</li>
-            <li>Consultar</li>
+            {
+              ["Cadastrar", "Consultar"].map( (e, index) => {
+                return currentTabID !== index + 1 ?
+                <li key={index} onClick={() => changeTabID(index + 1)} style={notSelectedStyle}>{e}</li> :
+                <li key={index} style={selectedStyle}>{e}</li>
+              })
+            }
           </ul>
         </div>
       </Style>

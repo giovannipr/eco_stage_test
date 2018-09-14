@@ -84,13 +84,13 @@ module.exports = {
   resolve: {
     alias: {
       dev: paths.dev,
-      lib: join(paths.dev, 'lib'),
-      models: join(paths.dev, 'models'),
-      reducers: join(paths.dev, 'reducers'),
+      // lib: join(paths.dev, 'lib'),
+      // models: join(paths.dev, 'models'),
+      reducers: join(paths.dev, 'Reducers'),
 
-      fontAwesome: join(paths.dev, 'css/font-awesome.min.css'),
+      // fontAwesome: join(paths.dev, 'css/font-awesome.min.css'),
 
-      components: join(paths.dev, 'components'),
+      components: join(paths.dev, 'Components'),
       API_ComponentsBase: join(paths.dev, 'API/Components/Base'),
     },
   },
