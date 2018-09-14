@@ -10,15 +10,6 @@ export default class Tables extends React.Component {
 
   constructor(props) {
     super(props)
-
-    const bindByName = [
-      // "getAttractions",
-      // "OnChangeOrigin",
-    ]
-
-    bindByName.map((bind) => {
-      this[bind] = this[bind].bind(this)
-    })
   }
 
   renderHeaderOfTable(undated){

@@ -12,14 +12,6 @@ const types = {
   FETCH_ADD_SUCCESS: 'FETCH_ADD_SUCCESS',
   FETCH_ADD_ERROR: 'FETCH_ADD_ERROR',
 
-  //Change an Attraction
-  // FETCH_UPDATE_SUCCESS: 'FETCH_UPDATE_SUCCESS',
-  // FETCH_UPDATE_ERROR: 'FETCH_UPDATE_ERROR',
-
-  //Delete an Attraction
-  // FETCH_DELETE_SUCCESS: 'FETCH_DELETE_SUCCESS',
-  // FETCH_DELETE_ERROR: 'FETCH_DELETE_ERROR',
-
   //Loading Verify
   REQUEST_START: 'REQUEST_START',
   REQUEST_FINISHED: 'REQUEST_FINISHED',
@@ -28,7 +20,7 @@ export const actions = {
   getList: () => (dispatch) => {
 
     return JSON.parse(window.localStorage.getItem('attractions')) || []
-    
+
   },
 
   addAttraction: (attraction) => (dispatch) => {
@@ -62,21 +54,7 @@ export default (state = initialState, { type, payload }) => {
         all: payload,
         isLoading: false,
       }
-
-    // case types.FETCH_UPDATE_SUCCESS:
-    //   return {
-    //     ...state,
-    //     // carsList: payload,
-    //     isLoading: false,
-    //   }
-    //
-    // case types.FETCH_DELETE_SUCCESS:
-    //   return {
-    //     ...state,
-    //     carDetail: null,
-    //     isLoading: false,
-    //   }
-
+      
     case types.REQUEST_START:
       return {
         ...state,
