@@ -17,7 +17,7 @@ class Create extends React.Component {
     super(props)
 
     const bindByName = [
-      "RegisterNewAttration",
+      "TryRegisterNewAttration",
     ]
 
     bindByName.map((bind) => {
@@ -32,10 +32,36 @@ class Create extends React.Component {
 
   }
 
-  RegisterNewAttration() {
-    this.form.name = document.querySelectorAll('#create .form-create .name')[0].value;
-    this.form.media = document.querySelectorAll('#create .form-create .media')[0].value;
+  BlinkField(field){
+    const initStyle = field.style;
+    field.style.borderColor = "red";
+    setTimeout(() => {field.style = initStyle}, 2000);
+  }
 
+  TryRegisterNewAttration(){
+
+    let canRegister = true;
+
+    let fields = [
+        { name: "name", field: document.querySelectorAll('#create .form-create .name')[0] },
+        { name: "media", field: document.querySelectorAll('#create .form-create .media')[0] }
+    ]
+
+    fields.forEach(f => {
+      this.form[f.name] = f.field.value;
+
+      if(this.form[f.name].length === 0) {
+        canRegister = false
+        this.BlinkField(f.field)
+      }
+
+    })
+
+    if(canRegister) this.RegisterNewAttration()
+
+  }
+
+  RegisterNewAttration() {
     this.props.actions.addAttraction(this.form);
   }
 
@@ -76,7 +102,7 @@ class Create extends React.Component {
           </form>
 
           <div className="form-submit">
-            <button onClick={this.RegisterNewAttration}>Cadastrar</button>
+            <button onClick={this.TryRegisterNewAttration}>Cadastrar</button>
           </div>
 
         </div>

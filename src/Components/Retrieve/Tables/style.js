@@ -29,6 +29,7 @@ const style = styled.div`
 
             th {
                 border: 1px #2b2b2b24 solid;
+                padding: 3px;
             }
 
             .content {
