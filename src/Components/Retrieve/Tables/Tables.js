@@ -40,7 +40,7 @@ export default class Tables extends React.Component {
           <tr key={i} className={"line"+(i%2)}>
             <th className="content">{l.name}</th>
             <th className="content">{l.media}</th>
-            {!undated && <th className="content">{Moment.unix(l.date).format("DD-MM-YYYY hh:mm:ss")}</th>}
+            {!undated && <th className="content">{Moment.unix(l.date).format("DD-MM-YYYY HH:mm:ss")}</th>}
           </tr>
         )
       })
@@ -60,12 +60,17 @@ export default class Tables extends React.Component {
               return (
                 <div key={index} className={a.divName + " myTable"}>
                   <label>{a.tableName}</label>
-                  <table>
-                    <tbody>
-                    {this.renderHeaderOfTable(a.undated)}
-                    {this.renderBodyOfTable(a)}
-                    </tbody>
-                  </table>
+                  {
+                    a.list.length > 0 ?
+                    <table>
+                      <tbody>
+                      {this.renderHeaderOfTable(a.undated)}
+                      {this.renderBodyOfTable(a)}
+                      </tbody>
+                    </table>
+                    :
+                    <p>Sem atrações</p>
+                  }
                 </div>
               )
             })

@@ -7,7 +7,8 @@ const style = styled.div`
     padding: 15px;
 
     .form-create {
-
+      border-radius: 5px;
+      background: #F0F8FF21;
       text-align: center;
       width: 100%;
 

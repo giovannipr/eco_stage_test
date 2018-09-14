@@ -6,7 +6,8 @@ const style = styled.div`
     #tables {
 
       .myTable {
-        background: #0000ff21;
+        border-radius: 5px;
+        background: #F0F8FF21;
         padding: 10px;
         margin: 5px;
 
@@ -28,7 +29,7 @@ const style = styled.div`
           tr {
 
             th {
-                border: 1px #2b2b2b24 solid;
+                border: 1px #2B2B2B24 solid;
                 padding: 3px;
             }
 
@@ -39,15 +40,15 @@ const style = styled.div`
           }
 
           .header {
-              background-color: #9FB9E8;
+              background-color: #C0C6CC52;
           }
 
           .line0 {
-            background-color: #afbfff73;
+            background-color: #F0F8FF;
           }
 
           .line1 {
-            background-color: #bcf3ff7a;
+            background-color: #F0F8FFD1;
           }
 
         }

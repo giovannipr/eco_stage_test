@@ -20,13 +20,14 @@ class Create extends React.Component {
 
     const bindByName = [
       "TryRegisterNewAttration",
+      "ConvertDateToUnix",
     ]
 
     bindByName.map((bind) => {
       this[bind] = this[bind].bind(this)
     })
 
-    this.resetFormParams();
+    this.ResetFormParams();
 
   }
 
@@ -38,16 +39,16 @@ class Create extends React.Component {
     this.fields = [
         { name: "name", field: document.querySelectorAll('#create .form-create .name')[0], required: true },
         { name: "media", field: document.querySelectorAll('#create .form-create .media')[0], required: true },
-        { name: "date", field: document.querySelectorAll('#create .form-create .datetime input')[0] }
+        { name: "date", field: document.querySelectorAll('#create .form-create .datetime input')[0], convertFct: this.ConvertDateToUnix}
     ]
   }
 
-  resetForm(){
-    this.resetFormParams();
-    this.resetFields();
+  ResetForm(){
+    this.ResetFormParams();
+    this.ResetFields();
   }
 
-  resetFormParams(){
+  ResetFormParams(){
     this.form = {
       name: "",
       media: "",
@@ -55,7 +56,7 @@ class Create extends React.Component {
     }
   }
 
-  resetFields(){
+  ResetFields(){
     this.fields.forEach(f => f.field.value = "")
   }
 
@@ -66,6 +67,10 @@ class Create extends React.Component {
     setTimeout(() => {field.style = initStyle}, 2000);
   }
 
+  ConvertDateToUnix(date){
+    return this.form.date;
+  }
+
   TryRegisterNewAttration(){
 
     let canRegister = true;
@@ -73,7 +78,7 @@ class Create extends React.Component {
     let fields = this.fields
 
     fields.forEach(f => {
-      this.form[f.name] = f.field.value;
+      this.form[f.name] = f.convertFct ? f.convertFct(f.field.value) : f.field.value;
 
       if(this.form[f.name].length === 0 && f.required) {
         canRegister = false
@@ -91,9 +96,9 @@ class Create extends React.Component {
     alert("Cadastro feito com sucesso!!!\n"+
       "Nome:    " + this.form.name + "\n"+
       "Mídia:   " + this.form.media + "\n"+
-      "Horário: " + (this.form.date <= 0 ? "Sem data" : Moment.unix(this.form.date).format("DD-MM-YYYY hh:mm:ss")) + "\n"
+      "Horário: " + (this.form.date <= 0 ? "Sem data" : Moment.unix(this.form.date).format("DD-MM-YYYY HH:mm:ss")) + "\n"
     );
-    this.resetForm();
+    this.ResetForm();
   }
 
   render() {
@@ -126,7 +131,7 @@ class Create extends React.Component {
                         closeOnTab={true}
                         open={false}
                         dateFormat="DD-MM-YYYY"
-                        timeFormat="hh:mm:ss"
+                        timeFormat="HH:mm:ss"
                         inputProps={{placeholder: "", readOnly: true}}
                         readonly={true}
                   />
