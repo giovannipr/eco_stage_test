@@ -29,10 +29,12 @@ export default class Header extends React.Component {
 
     const selectedStyle = {
       pointerEvents: "none",
-      backgroundColor: "#9FD0E8"
+      backgroundColor: "#A3D4FF",
+      fontWeight: "bold",
     }
     const notSelectedStyle = {
       cursor: "pointer",
+      fontWeight: "normal",
     }
 
     return (

@@ -23,6 +23,8 @@ const style = styled.div`
       border-radius: 10px 10px 0px 0px;
       width: 50%;
       padding: 10px;
+
+      font-size: 22px;
     }
 
   }
