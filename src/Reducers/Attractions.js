@@ -26,10 +26,9 @@ const types = {
 }
 export const actions = {
   getList: () => (dispatch) => {
-    return dispatch({
-      type: types.FETCHS_LIST_SUCCESS,
-      payload: JSON.parse(window.localStorage.getItem('attractions')) || []
-    })
+
+    return JSON.parse(window.localStorage.getItem('attractions')) || []
+    
   },
 
   addAttraction: (attraction) => (dispatch) => {

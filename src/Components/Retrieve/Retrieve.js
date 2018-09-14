@@ -27,10 +27,6 @@ class Retrieve extends React.Component {
       this[bind] = this[bind].bind(this)
     })
 
-
-
-    this.props.actions.getList()
-    this.updateAttractionsDivisor()
   }
 
   resetAttractionsDivisor(){
@@ -39,6 +35,10 @@ class Retrieve extends React.Component {
       seen: [],
       undated: [],
     }
+  }
+
+  componentWillMount(){
+    this.updateAttractionsDivisor()
   }
 
   updateAttractionsDivisor(){
@@ -74,7 +74,7 @@ class Retrieve extends React.Component {
   }
 
   getAttractions(){
-    return this.props.all
+    return this.props.actions.getList()
   }
 
   render() {

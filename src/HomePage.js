@@ -44,7 +44,7 @@ export default class HomePage extends React.Component {
     return (
       <Style>
         <div id="main-div">
-          <div>Olá! Seja Bem-Vindo a suas atrações...</div>
+          <h2>Olá! Seja Bem-Vindo a suas atrações</h2>
           <Header currentTabID={this.state.currentTab} changeTabID={this.ChangeTabID} />
           <div id="main-body">
             { this.CurrentTab() }
