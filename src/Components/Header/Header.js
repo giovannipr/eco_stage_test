@@ -29,8 +29,11 @@ export default class Header extends React.Component {
 
     return (
       <Style>
-        <div id="main-div">
-
+        <div id="header">
+          <ul>
+            <li>Cadastrar</li>
+            <li>Consultar</li>
+          </ul>
         </div>
       </Style>
     )

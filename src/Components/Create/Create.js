@@ -29,7 +29,33 @@ export default class Create extends React.Component {
 
     return (
       <Style>
-        <div id="main-div">
+
+        <div id="create">
+
+          <div className="form-create">
+
+            <div>
+              <label>Nome:</label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label>Mídia:</label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label>Data/Hora:</label>
+              <input type="text" />
+            </div>
+
+          </div>
+
+          <div className="form-submit">
+
+            <button>Cadastrar</button>
+
+          </div>
 
         </div>
       </Style>
