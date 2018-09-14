@@ -1,6 +1,8 @@
 {
   "author": "Giovanni Pregnolato Rosim",
   "name": "eco_stage_test",
+  "description": "Eco Stage Test",
+  "license" : "(ISC OR GPL-3.0)",
   "version": "1.0.0",
   "engines": {
     "node": "9.3.0"
