@@ -1,5 +1,10 @@
 {
   "author": "Giovanni Pregnolato Rosim",
+  "name": "eco_stage_test",
+  "version": "1.0.0",
+  "engines": {
+    "node": "9.3.0"
+  },
   "scripts": {
     "start": "webpack-dashboard -- node server.js",
     "s": "node server.js",
