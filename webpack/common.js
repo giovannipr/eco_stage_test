@@ -92,6 +92,7 @@ module.exports = {
 
       components: join(paths.dev, 'Components'),
       API_ComponentsBase: join(paths.dev, 'API/Components/Base'),
+      API_ComponentsStyled: join(paths.dev, 'API/Components/Styled'),
     },
   },
 }
