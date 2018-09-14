@@ -7,19 +7,48 @@ const style = styled.div`
     padding: 15px;
 
     .form-create {
+
+      text-align: center;
+      width: 100%;
+
+      th {
+        width: 50%;
+        padding: 10px;
+
+        input {
+          height: 20px;
+          width: 256px;
+          border-radius: 5px;
+          border: none;
+          font-size: 22px;
+        }
+
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .right {
+        text-align: right;
+        padding-right: 50px;
+        font-size: 20px;
+      }
+
       .date{
         display: inline-flex;
       }
     }
 
-    .form-create + div {
+    .form-submit {
       display: flex;
       justify-content: space-around;
+      margin-top: 15px;
 
-      label, input {
-        text-align: center;
-        width: 50%;
-        padding: 10px;
+      button {
+        height: 36px;
+        font-size: 18px;
+        border-radius: 10px;
       }
 
     }
